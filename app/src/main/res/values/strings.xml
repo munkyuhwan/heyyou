@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">헤이유</string>
+    <string name="webview_url">http://hey-you.co.kr/</string>
+    <string name="login_url"> http://hey-you.co.kr/login.do</string>
+    <string name="singnup_url">http://hey-you.co.kr/signup.do?referer=plus489</string>
+    <string name="app_dismiss">허용후 이용할 수 있습니다.</string>
+    <string name="splash_text">동시접속 업계 1위 \n 당신을 기다리고 있어요.</string>
+</resources>
