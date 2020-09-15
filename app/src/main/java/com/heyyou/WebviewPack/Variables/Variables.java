@@ -18,6 +18,7 @@ public class Variables {
 
     public static String ZZAL_URL_TEST = "https://api-test.zzal.funple.com";
     public static String ZZAL_URL_PROD = "https://api.zzal.funple.com";
+    public static String ZZAL_URL_COMPLETE = "/advertising/offerwall/complete/action";
 
     public static String ZZAL_USERID = "269021d135654a86809ca5849b6b188b";
     public static String ZZAL_PASS = "2f24ce497a0644c080d7f7426639195ab24853098857462299f3b098d9f430010c0c5e7cb4474d69a52869f2f4e68aac";

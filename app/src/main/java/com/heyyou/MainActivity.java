@@ -12,6 +12,7 @@ import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.WebView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.heyyou.WebviewPack.Variables.Variables;
 import com.heyyou.WebviewPack.WebPackMain;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
     private WebPackMain wp;
     private ImageButton menuBtn;
     private ConstraintLayout appBar;
+    private ImageView mainLogo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +67,17 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
                 wp.onMenuClick();
             }
         });
+
+
+
+        mainLogo = (ImageView)findViewById(R.id.imageView);
+        mainLogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                wp.getmWebview().loadUrl(Variables.MAIN_URL);
+            }
+        });
+
 
     }
 

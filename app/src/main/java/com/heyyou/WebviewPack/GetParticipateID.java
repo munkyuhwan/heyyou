@@ -3,14 +3,14 @@ package com.heyyou.WebviewPack;
 import android.content.Context;
 import android.util.Log;
 
-import androidx.ads.identifier.AdvertisingIdClient;
-import androidx.ads.identifier.AdvertisingIdInfo;
+//import androidx.ads.identifier.AdvertisingIdClient;
+//import androidx.ads.identifier.AdvertisingIdInfo;
 
-import com.google.android.gms.auth.GooglePlayServicesAvailabilityException;
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.common.util.concurrent.FutureCallback;
-import com.google.common.util.concurrent.Futures;
-import com.google.common.util.concurrent.ListenableFuture;
+//import com.google.android.gms.auth.GooglePlayServicesAvailabilityException;
+//import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+//import com.google.common.util.concurrent.FutureCallback;
+//import com.google.common.util.concurrent.Futures;
+//import com.google.common.util.concurrent.ListenableFuture;
 
 import java.io.IOException;
 import java.util.concurrent.Executor;
@@ -19,7 +19,7 @@ import java.util.concurrent.Future;
 public class GetParticipateID {
 
     public void getIdThread(Context mContext) {
-        ListenableFuture<AdvertisingIdInfo> adInfo = null;
+        //ListenableFuture<AdvertisingIdInfo> adInfo = null;
         //adInfo = AdvertisingIdClient.getAdvertisingIdInfo(mContext);
 
 

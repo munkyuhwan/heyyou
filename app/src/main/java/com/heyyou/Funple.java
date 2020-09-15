@@ -5,22 +5,13 @@ import android.os.AsyncTask;
 import android.util.Base64;
 import android.util.Log;
 
-import androidx.ads.identifier.AdvertisingIdClient;
-import androidx.ads.identifier.AdvertisingIdClient;
-import androidx.ads.identifier.AdvertisingIdInfo;
-
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
-import com.google.common.util.concurrent.FutureCallback;
-import com.google.common.util.concurrent.Futures;
-import com.google.common.util.concurrent.ListenableFuture;
+//import com.google.android.gms.common.ConnectionResult;
+//import com.google.android.gms.common.GoogleApiAvailability;
+//import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+//import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.heyyou.WebviewPack.Variables.Variables;
 
-import org.checkerframework.checker.nullness.compatqual.NullableDecl;
-
 import java.io.IOException;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executor;
 
 import okhttp3.FormBody;
 import okhttp3.Headers;
@@ -28,6 +19,8 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+
+
 
 public class Funple {
 
@@ -38,75 +31,45 @@ public class Funple {
     }
 
     public void determineAdvertisingInfo() {
-        //AdvertisingIdInfo adInfo = AdvertisingIdClient.getAdvertisingIdInfo(mContext);
-            //AdvertisingIdInfo adInfo  = AdvertisingIdClient.getAdvertisingIdInfo(mContext).get().getId();
+
+        /*
+        Log.e("advetising", "id: "+ GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(mContext));
+        Log.e("advetising", "result: "+ ConnectionResult.SUCCESS );
 
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
 
-                ListenableFuture<AdvertisingIdInfo> listenableFuture = AdvertisingIdClient.getAdvertisingIdInfo(mContext);
-
                 try {
-                    Log.e("success","=========================================================================");
-                    AdvertisingIdInfo info = listenableFuture.get();
-
-                    Log.e("success","=========================================================================");
-                } catch (ExecutionException e) {
+                    String id = com.google.android.gms.ads.identifier.AdvertisingIdClient.getAdvertisingIdInfo(mContext).getId();
+                    Log.e("advetising", "success==================================================");
+                    Log.e("advetising", "id: "+id);
+                    Log.e("advetising", "==================================================");
+                    doConnect(id);
+                } catch (IOException e) {
                     e.printStackTrace();
-                } catch (InterruptedException e) {
+                } catch (GooglePlayServicesNotAvailableException e) {
+                    e.printStackTrace();
+                } catch (GooglePlayServicesRepairableException e) {
                     e.printStackTrace();
                 }
 
             }
-        });
 
-
-        /*
-        if (AdvertisingIdClient.isAdvertisingIdProviderAvailable(mContext)) {
-
-        }
-        ListenableFuture<AdvertisingIdInfo> advertisingIdInfoListenableFuture = AdvertisingIdClient.getAdvertisingIdInfo(mContext.getApplicationContext());
-
-
-        Futures.addCallback(advertisingIdInfoListenableFuture, new FutureCallback<AdvertisingIdInfo>() {
-            @Override
-            public void onSuccess(@NullableDecl AdvertisingIdInfo result) {
-                String id = result.getId();
-                String providerPackageName =
-                        result.getProviderPackageName();
-                boolean isLimitTrackingEnabled = result.isLimitAdTrackingEnabled();
-
-                Log.e("success","=========================================================================");
-                Log.e("success",id);
-                Log.e("success",providerPackageName);
-                Log.e("success", String.valueOf(isLimitTrackingEnabled));
-                Log.e("success","=========================================================================");
-                // Any exceptions thrown by getAdvertisingIdInfo()
-                // cause this method to get called.
-
-            }
-
-            @Override
-            public void onFailure(Throwable t) {
-
-            }
-        }, new Executor() {
-            @Override
-            public void execute(Runnable runnable) {
-
-            }
-        });
+         });
 
          */
 
 
     }
 
-        public void doConnect() {
+        public void doConnect(String id) {
 
         final OkHttpClient client = new OkHttpClient();
         RequestBody body = new FormBody.Builder()
+                .add("advertiseID","")
+                .add("participateID","")
+                .add("advertiseID","1")
                 .build();
         Headers headers = new Headers.Builder()
                 .add("x-client-id", Variables.ZZAL_USERID)
@@ -118,7 +81,8 @@ public class Funple {
         //request
         final Request request = new Request.Builder()
                 .headers(headers)
-                .url(Variables.ZZAL_URL_TEST)
+                .post(body)
+                .url(Variables.ZZAL_URL_TEST+Variables.ZZAL_URL_COMPLETE+"?referrer=participateID%"+id)
                 .build();
 
         new Thread(new Runnable() {
