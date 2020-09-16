@@ -1,4 +1,4 @@
-package com.heyyou.WebviewPack;
+package com.heyyou.kr.WebviewPack;
 
 import android.os.Build;
 import android.view.View;
@@ -6,10 +6,24 @@ import android.webkit.CookieManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
-public class SetWebviewSettings {
+import com.heyyou.kr.WebviewPack.CustomJavascript.CustomJavascriptInterface;
+import com.heyyou.kr.WebviewPack.CustomWebviewClient.CustomWebChrome;
+import com.heyyou.kr.WebviewPack.CustomWebviewClient.CustomWebviewClient;
+import com.heyyou.kr.MainActivity;
+
+public class CustomWebviewSettings {
+    private WebView mWebview;
+    private WebPackMain mWebPackMain;
+    private MainActivity mainActivity;
 
 
-    public void doWebviewSetting(WebView mWebview) {
+    public CustomWebviewSettings(WebView webView, WebPackMain webPackMain, MainActivity mainActivity) {
+        this.mWebview = webView;
+        this.mWebPackMain = webPackMain;
+        this.mainActivity = mainActivity;
+    }
+
+    public void doWebviewSetting() {
 
         CookieManager cookieManager = CookieManager.getInstance();
         cookieManager.setAcceptCookie(true);
@@ -17,9 +31,7 @@ public class SetWebviewSettings {
         mWebview.getSettings().setUseWideViewPort(true);
         mWebview.getSettings().setLoadWithOverviewMode(true);
 
-
-
-        //mWebview.addJavascriptInterface(new CustomJavascriptInterface(this.mWebPackMain ), "App");
+        mWebview.addJavascriptInterface(new CustomJavascriptInterface(this.mWebPackMain ), "App");
 
         mWebview.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
 
@@ -53,8 +65,8 @@ public class SetWebviewSettings {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mWebview.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         }
-        //mWebview.setWebChromeClient(new CustomWebChrome(this.mWebPackMain, this.mWebPackMain, mainActivity));
-        //mWebview.setWebViewClient(new CustomWebviewClient(mWebPackMain, this.mainActivity));
+        mWebview.setWebChromeClient(new CustomWebChrome(this.mWebPackMain, this.mWebPackMain, mainActivity));
+        mWebview.setWebViewClient(new CustomWebviewClient(mWebPackMain, this.mainActivity, mWebPackMain));
 
         String userAgent = mWebview.getSettings().getUserAgentString();
         mWebview.getSettings().setUserAgentString(userAgent+" MobileApp ");
@@ -68,5 +80,4 @@ public class SetWebviewSettings {
         mWebview.getSettings().setAppCacheEnabled(true);
 
     }
-
 }

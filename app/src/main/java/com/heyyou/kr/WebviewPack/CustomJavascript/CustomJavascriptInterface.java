@@ -1,4 +1,4 @@
-package com.heyyou.WebviewPack.CustomJavascript;
+package com.heyyou.kr.WebviewPack.CustomJavascript;
 
 import android.webkit.JavascriptInterface;
 

@@ -1,4 +1,4 @@
-package com.heyyou.WebviewPack.Variables;
+package com.heyyou.kr.WebviewPack.Variables;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,6 +7,7 @@ public class Variables {
 
     public static Map<String, String> headers = new HashMap<>();
 
+    public static String ORIGINAL_URL  = "http://hey-you.co.kr";
     public static String WEBVIEW_URL = "http://hey-you.co.kr";
 
     public static String REGISTER_URL = "http://hey-you.co.kr/register";

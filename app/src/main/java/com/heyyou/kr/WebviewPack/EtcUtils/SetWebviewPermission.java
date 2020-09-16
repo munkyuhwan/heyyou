@@ -1,4 +1,4 @@
-package com.heyyou.WebviewPack.EtcUtils;
+package com.heyyou.kr.WebviewPack.EtcUtils;
 
 import android.Manifest;
 import android.app.Activity;

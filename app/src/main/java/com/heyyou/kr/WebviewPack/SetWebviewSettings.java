@@ -1,4 +1,4 @@
-package com.heyyou.WebviewPack;
+package com.heyyou.kr.WebviewPack;
 
 import android.os.Build;
 import android.view.View;
@@ -6,24 +6,10 @@ import android.webkit.CookieManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
-import com.heyyou.WebviewPack.CustomJavascript.CustomJavascriptInterface;
-import com.heyyou.WebviewPack.CustomWebviewClient.CustomWebChrome;
-import com.heyyou.WebviewPack.CustomWebviewClient.CustomWebviewClient;
-import com.heyyou.MainActivity;
-
-public class CustomWebviewSettings {
-    private WebView mWebview;
-    private WebPackMain mWebPackMain;
-    private MainActivity mainActivity;
+public class SetWebviewSettings {
 
 
-    public CustomWebviewSettings(WebView webView, WebPackMain webPackMain, MainActivity mainActivity) {
-        this.mWebview = webView;
-        this.mWebPackMain = webPackMain;
-        this.mainActivity = mainActivity;
-    }
-
-    public void doWebviewSetting() {
+    public void doWebviewSetting(WebView mWebview) {
 
         CookieManager cookieManager = CookieManager.getInstance();
         cookieManager.setAcceptCookie(true);
@@ -31,7 +17,9 @@ public class CustomWebviewSettings {
         mWebview.getSettings().setUseWideViewPort(true);
         mWebview.getSettings().setLoadWithOverviewMode(true);
 
-        mWebview.addJavascriptInterface(new CustomJavascriptInterface(this.mWebPackMain ), "App");
+
+
+        //mWebview.addJavascriptInterface(new CustomJavascriptInterface(this.mWebPackMain ), "App");
 
         mWebview.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
 
@@ -53,7 +41,7 @@ public class CustomWebviewSettings {
         mWebview.getSettings().setLoadsImagesAutomatically(true);
         mWebview.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
 
-        mWebview.setWebContentsDebuggingEnabled(true);
+        mWebview.setWebContentsDebuggingEnabled(false);
 
         // mWebview.getSettings().setGeolocationDatabasePath(getFilesDir().getPath());
         mWebview.getSettings().setGeolocationEnabled(true);
@@ -65,8 +53,8 @@ public class CustomWebviewSettings {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mWebview.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         }
-        mWebview.setWebChromeClient(new CustomWebChrome(this.mWebPackMain, this.mWebPackMain, mainActivity));
-        mWebview.setWebViewClient(new CustomWebviewClient(mWebPackMain, this.mainActivity, mWebPackMain));
+        //mWebview.setWebChromeClient(new CustomWebChrome(this.mWebPackMain, this.mWebPackMain, mainActivity));
+        //mWebview.setWebViewClient(new CustomWebviewClient(mWebPackMain, this.mainActivity));
 
         String userAgent = mWebview.getSettings().getUserAgentString();
         mWebview.getSettings().setUserAgentString(userAgent+" MobileApp ");
@@ -80,4 +68,5 @@ public class CustomWebviewSettings {
         mWebview.getSettings().setAppCacheEnabled(true);
 
     }
+
 }

@@ -1,4 +1,4 @@
-package com.heyyou;
+package com.heyyou.kr;
 
 public interface MainActivityInterface {
 

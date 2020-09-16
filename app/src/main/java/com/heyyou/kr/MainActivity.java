@@ -1,4 +1,4 @@
-package com.heyyou;
+package com.heyyou.kr;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,8 +14,9 @@ import android.webkit.WebView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-import com.heyyou.WebviewPack.Variables.Variables;
-import com.heyyou.WebviewPack.WebPackMain;
+import com.heyyou.R;
+import com.heyyou.kr.WebviewPack.Variables.Variables;
+import com.heyyou.kr.WebviewPack.WebPackMain;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -103,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
     public void hideAppBar(boolean show) {
         if (show) {
             appBar.setVisibility(View.VISIBLE);
+            appBar.bringToFront();
         }else {
             appBar.setVisibility(View.GONE);
         }

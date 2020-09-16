@@ -1,4 +1,4 @@
-package com.heyyou.WebviewPack.CustomJavascript;
+package com.heyyou.kr.WebviewPack.CustomJavascript;
 
 /**
  * Created by Moon on 2018. 4. 6..

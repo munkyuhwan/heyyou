@@ -1,7 +1,6 @@
-package com.heyyou;
+package com.heyyou.kr;
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.util.Base64;
 import android.util.Log;
 
@@ -9,7 +8,7 @@ import android.util.Log;
 //import com.google.android.gms.common.GoogleApiAvailability;
 //import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 //import com.google.android.gms.common.GooglePlayServicesRepairableException;
-import com.heyyou.WebviewPack.Variables.Variables;
+import com.heyyou.kr.WebviewPack.Variables.Variables;
 
 import java.io.IOException;
 

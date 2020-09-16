@@ -1,4 +1,4 @@
-package com.heyyou.WebviewPack;
+package com.heyyou.kr.WebviewPack;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,11 +16,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.heyyou.WebviewPack.CustomJavascript.WebviewJavascriptInterface;
-import com.heyyou.WebviewPack.EtcUtils.BackPressHandler;
-import com.heyyou.WebviewPack.EtcUtils.SetWebviewPermission;
-import com.heyyou.WebviewPack.Variables.Variables;
-import com.heyyou.MainActivity;
+import com.heyyou.kr.WebviewPack.CustomJavascript.WebviewJavascriptInterface;
+import com.heyyou.kr.WebviewPack.EtcUtils.BackPressHandler;
+import com.heyyou.kr.WebviewPack.EtcUtils.SetWebviewPermission;
+import com.heyyou.kr.WebviewPack.Variables.Variables;
+import com.heyyou.kr.MainActivity;
 import com.heyyou.R;
 
 import java.util.Locale;

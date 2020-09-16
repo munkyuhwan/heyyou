@@ -1,7 +1,6 @@
-package com.heyyou.WebviewPack;
+package com.heyyou.kr.WebviewPack;
 
 import android.content.Context;
-import android.util.Log;
 
 //import androidx.ads.identifier.AdvertisingIdClient;
 //import androidx.ads.identifier.AdvertisingIdInfo;
@@ -12,9 +11,6 @@ import android.util.Log;
 //import com.google.common.util.concurrent.Futures;
 //import com.google.common.util.concurrent.ListenableFuture;
 
-import java.io.IOException;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Future;
 
 public class GetParticipateID {
 

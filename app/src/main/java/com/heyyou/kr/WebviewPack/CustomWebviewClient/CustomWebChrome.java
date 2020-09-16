@@ -1,4 +1,4 @@
-package com.heyyou.WebviewPack.CustomWebviewClient;
+package com.heyyou.kr.WebviewPack.CustomWebviewClient;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -26,8 +26,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 
-import com.heyyou.WebviewPack.WebPackMain;
-import com.heyyou.MainActivity;
+import com.heyyou.kr.WebviewPack.WebPackMain;
+import com.heyyou.kr.MainActivity;
 
 import java.io.File;
 import java.util.ArrayList;

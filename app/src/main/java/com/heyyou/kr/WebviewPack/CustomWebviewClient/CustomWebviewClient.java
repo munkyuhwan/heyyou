@@ -1,4 +1,4 @@
-package com.heyyou.WebviewPack.CustomWebviewClient;
+package com.heyyou.kr.WebviewPack.CustomWebviewClient;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
@@ -11,10 +11,10 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.heyyou.WebviewPack.Variables.Variables;
-import com.heyyou.WebviewPack.WebPackMain;
-import com.heyyou.MainActivity;
-import com.heyyou.MainActivityInterface;
+import com.heyyou.kr.WebviewPack.Variables.Variables;
+import com.heyyou.kr.WebviewPack.WebPackMain;
+import com.heyyou.kr.MainActivity;
+import com.heyyou.kr.MainActivityInterface;
 
 import java.net.URISyntaxException;
 
@@ -52,8 +52,6 @@ public class CustomWebviewClient extends WebViewClient {
         this.isSignedIn(view);
 
         view.getOriginalUrl();
-        Log.e("url","===============================================================");
-        Log.e("url",url);
         if(view.getOriginalUrl() != null) {
             Log.e("originalURL",view.getOriginalUrl());
             if (view.getOriginalUrl().equals(Variables.REGISTER_URL) && url.equals(Variables.MAIN_URL)) {
@@ -64,17 +62,19 @@ public class CustomWebviewClient extends WebViewClient {
             }
         }
 
-        //if (view.getOriginalUrl().equals(""))
-
-
-        if (url.equals(Variables.WEBVIEW_URL) ||
-                url.equals(Variables.WEBVIEW_URL+"/main/index")||
-                url.equals(Variables.WEBVIEW_URL+"/main")
+        if (url.equals(Variables.ORIGINAL_URL) ||
+                url.equals(Variables.ORIGINAL_URL+"/main/index")||
+                        url.equals(Variables.ORIGINAL_URL+"/main")
         ) {
             mainActivityInterface.hideAppBar(false);
         }else {
             mainActivityInterface.hideAppBar(true);
         }
+
+
+        //if (view.getOriginalUrl().equals(""))
+
+
 
         if (url.startsWith("intent://")) {
             Intent intent = new Intent();
@@ -208,6 +208,10 @@ public class CustomWebviewClient extends WebViewClient {
         if (!url.equals(Variables.WEBVIEW_URL)) {
            // mainActivityInterface.closeSignupFragment();
         }
+
+        Log.e("url","============================================================");
+        Log.e("url",url);
+        Log.e("url","============================================================");
 
 
 
