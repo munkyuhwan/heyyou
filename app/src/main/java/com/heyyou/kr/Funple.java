@@ -1,13 +1,12 @@
 package com.heyyou.kr;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.util.Base64;
 import android.util.Log;
 
-//import com.google.android.gms.common.ConnectionResult;
-//import com.google.android.gms.common.GoogleApiAvailability;
-//import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-//import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.heyyou.kr.WebviewPack.Variables.Variables;
 
 import java.io.IOException;
@@ -31,10 +30,6 @@ public class Funple {
 
     public void determineAdvertisingInfo() {
 
-        /*
-        Log.e("advetising", "id: "+ GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(mContext));
-        Log.e("advetising", "result: "+ ConnectionResult.SUCCESS );
-
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
@@ -57,7 +52,7 @@ public class Funple {
 
          });
 
-         */
+
 
 
     }
@@ -66,12 +61,11 @@ public class Funple {
 
         final OkHttpClient client = new OkHttpClient();
         RequestBody body = new FormBody.Builder()
-                .add("advertiseID","")
-                .add("participateID","")
-                .add("advertiseID","1")
+                .add("advertiseID",Variables.AD_ID)
+                .add("participateID",id)
+                .add("actionResult","1")
                 .build();
         Headers headers = new Headers.Builder()
-                .add("x-client-id", Variables.ZZAL_USERID)
                 .add("authentication", "Basic " + Base64.decode(Variables.ZZAL_USERID + ":" + Variables.ZZAL_PASS, Base64.DEFAULT))
                 .add("content-type", "application/json")
                 .add("accept-version", "1.0.0")
@@ -81,7 +75,8 @@ public class Funple {
         final Request request = new Request.Builder()
                 .headers(headers)
                 .post(body)
-                .url(Variables.ZZAL_URL_TEST+Variables.ZZAL_URL_COMPLETE+"?referrer=participateID%"+id)
+                .url(Variables.ZZAL_URL_TEST+Variables.ZZAL_URL_COMPLETE+"?advertiseID="+Variables.AD_ID+"&participateID="+id+"&actionResult=1")
+                //.url(Variables.ZZAL_URL_TEST)
                 .build();
 
         new Thread(new Runnable() {
@@ -91,9 +86,13 @@ public class Funple {
                 try {
                     Response response = client.newCall(request).execute();
                     String message = response.body().string();
+
                     Log.e("response", "================================================================");
-                    Log.e("response", String.valueOf(response.code()));
-                    Log.e("response", message);
+                    Log.e("response", "="+String.valueOf(response.code()));
+                    Log.e("response", "="+message);
+                    Log.e("response", "="+response.headers());
+                    Log.e("response", "="+response.body());
+                    Log.e("response", "="+response.request());
                     Log.e("response", "================================================================");
 
                 } catch (IOException e) {

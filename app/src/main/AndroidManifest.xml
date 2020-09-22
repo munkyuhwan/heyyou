@@ -14,14 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:usesCleartextTraffic="true">
-        <receiver android:name="com.heyyou.kr.InstallReferrerReceiver" android:exported="true">
-            <intent-filter>
-                <action android:name="com.android.vending.INSTALL_REFERRER" />
-            </intent-filter>
-        </receiver>
-        <!-- meta-data
+
+        <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
-            android:value="true"/ -->
+            android:value="true"/>
         <activity
             android:name=".kr.Splash"
             android:theme="@style/Theme.AppCompat.NoActionBar"
@@ -34,6 +30,11 @@
         <activity android:name=".kr.MainActivity">
 
         </activity>
+        <receiver android:name="com.heyyou.kr.InstallReferrerReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

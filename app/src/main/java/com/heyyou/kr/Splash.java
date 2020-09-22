@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -14,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.heyyou.R;
+import com.heyyou.kr.WebviewPack.Variables.Variables;
 
 public class Splash extends AppCompatActivity {
 
@@ -108,6 +110,10 @@ public class Splash extends AppCompatActivity {
 
             }
         });
+
+        //Funple funple = new Funple(this);
+        //funple.determineAdvertisingInfo();
+        //funple.doConnect(Variables.AD_ID);
 
 
     }

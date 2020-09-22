@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.heyyou.kr"
-        minSdkVersion 28
+        minSdkVersion 27
         targetSdkVersion 29
         versionCode 1000
         versionName "1.0.1"
@@ -39,9 +39,9 @@ dependencies {
 
     implementation 'com.squareup.okhttp3:okhttp:3.6.0'
 
-    //implementation 'androidx.ads:ads-identifier:1.0.0-alpha01'
-    //implementation 'com.google.guava:guava:28.0-android'
-    //implementation 'com.google.android.gms:play-services-auth:18.1.0'
-    //implementation 'com.google.android.gms:play-services-ads:19.3.0'
+    implementation 'androidx.ads:ads-identifier:1.0.0-alpha01'
+    implementation 'com.google.guava:guava:28.0-android'
+    implementation 'com.google.android.gms:play-services-auth:18.1.0'
+    implementation 'com.google.android.gms:play-services-ads:19.3.0'
 
 }
