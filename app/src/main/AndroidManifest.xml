@@ -35,6 +35,7 @@
                 <action android:name="com.android.vending.INSTALL_REFERRER" />
             </intent-filter>
         </receiver>
+
     </application>
 
 </manifest>
